@@ -1,11 +1,15 @@
 #vamos usar do Flask 
 from flask import Flask
 #importando a classe Flask do módulo flask 
+from validate_docbr import CPF, CNPJ
+
 
 # Aluno a1 = new Aluno();
 # a1 = Aluno() -> equivalente 
 
 app = Flask("Minha Aplicação")
+cpf = CPF()
+cnpj = CNPJ()
 #"Minha aplicação" -> nome (atributo) do objeto 
 #instancia um objeto flask que representa a aplicação
 
@@ -27,3 +31,20 @@ def contato():
 def produtos():
     return "<h1>Lista de produtos</h1>"
 #o que aparece na url -> é a rota 
+
+# /gerar_cpf (deve devolver um cpf aleatório)
+# /servicos (deve devolver um título "Nossos servicos")
+# /gerar_cnpj (deve devolver um cnpj aleatorio)
+
+@app.route("/gerar_cpf")
+def gerar_cpf():
+    return "<div> O seu cpf é "+ cpf.generate(True) + "<div>"
+
+@app.route("/servicos")
+def servicos():
+    return "<h1>Nossos servicos</h1>"
+#o que aparece na url -> é a rota 
+
+@app.route("/gerar_cnpj")
+def gerar_cnpj():
+    return "<div> O seu cnpj é "+ cnpj.generate(True) + "<div>"
