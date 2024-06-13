@@ -38,7 +38,8 @@ def produtos():
 
 @app.route("/gerar_cpf")
 def gerar_cpf():
-    return "<div> O seu cpf é "+ cpf.generate(True) + "<div>"
+    cpf_usuario = cpf.generate(True)
+    return f"<h1>Gerar CPF</h1><p>CPF: {cpf_usuario}"
 
 @app.route("/servicos")
 def servicos():
@@ -47,4 +48,5 @@ def servicos():
 
 @app.route("/gerar_cnpj")
 def gerar_cnpj():
-    return "<div> O seu cnpj é "+ cnpj.generate(True) + "<div>"
+    cnpj_usuario = cnpj.generate(True)
+    return "<div> O seu cnpj é "+ cnpj_usuario + "<div>"
