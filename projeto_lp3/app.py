@@ -1,5 +1,5 @@
 #vamos usar do Flask 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 #importando a classe Flask do módulo flask 
 from validate_docbr import CPF, CNPJ
 
@@ -25,14 +25,14 @@ def contato():
     return render_template("contatos.html")
 
 #página produtos - /produtos 
-@app.route("/produtos")
-def produtos():
-    lista_produtos=[
+lista_produtos=[
         {"nome": "Coca-cola", "descricao":"Mata a sede"}, 
         {"nome": "doritos", "descricao":"suja a mão"},
         {"nome":"Chocolate", "descricao":"bom"}
         #a lista poderia vir do bdd 
     ]
+@app.route("/produtos")
+def produtos():
     return render_template("produtos.html",produtos=lista_produtos)
 
 #o que aparece na url -> é a rota 
@@ -77,6 +77,21 @@ def produto_2():
 @app.route("/contatos_2")
 def contato_2(): 
     return render_template("contato_2.html")
+
+
+#aula 25/06
+@app.route("/produtos/cadastro")
+def cadastro_produto():
+    return render_template("cadastro_produto.html")
+
+@app.route("/produtos", methods=['POST'])
+def salvar_produtos():
+    nome = request.form['nome']
+    descricao = request.form['descricao']
+    produto = {'nome': nome, "descricao": descricao}
+    lista_produtos.append(produto) 
+    return render_template("produtos.html", produtos=lista_produtos)
+    # a lista tem que ficar global
 
 app.run()
 

@@ -1,0 +1,55 @@
+body{
+    background-color: rgb(253, 240, 224);
+    justify-content: center;
+    align-items: center;
+}
+
+label, input, button{
+    display: block;
+    margin-block: 10px;
+}
+div{
+    width: 20%;
+    height: 30%;
+    background-color: bisque;
+    border-radius: 10px;
+    margin-inline: 10px;
+    margin-block: 40px;
+    /* display: inline-flex;
+    align-items: center; */
+}
+h1{
+    color: rgb(228, 119, 119);
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    background-color: rgb(228, 119, 119);
+    border-radius: 10px;
+    padding: 15px;
+    margin-inline: 5px;
+}
+a:hover{
+    box-shadow: 2px 4px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+label{
+    background-color: rgb(228, 119, 119);
+    width: 100px ;
+    border-radius: 5px;
+    text-align: center;
+}
+button{
+    background-color: rgb(228, 119, 119);
+    border-radius: 5px;
+    border: none;
+}
+
+/* *{
+    padding: 0;
+    margin: 0;
+    border: 0; 
+} */
+/* para tirar o padrão de tudo  */
