@@ -53,32 +53,6 @@ def gerar_cnpj():
     return render_template("cnpj.html",cnpj=cnpj_usuario)
 
 
-#exercício 3
-@app.route("/como_utilizar")
-def como_utilizar(): 
-    return render_template("como_utilizar.html")
-
-@app.route("/politica_privacidade")
-def politica_privacidade(): 
-    return render_template("politica_privacidade.html")
-
-@app.route("/termos_de_uso")
-def termos_uso(): 
-    return render_template("termos_uso.html")
-
-@app.route("/casa")
-def home_2(): 
-    return render_template("home_2.html")
-
-@app.route("/produtos_2")
-def produto_2(): 
-    return render_template("produto_2.html")
-
-@app.route("/contatos_2")
-def contato_2(): 
-    return render_template("contato_2.html")
-
-
 #aula 25/06
 @app.route("/produtos/cadastro")
 def cadastro_produto():
