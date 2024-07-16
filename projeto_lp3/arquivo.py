@@ -36,3 +36,24 @@ with open("projeto_lp3/dados.txt", "r") as arquivo4:
 with open("projeto_lp3/dados.txt", "a") as arquivo6:
     #abrir com a letra a -> append
     arquivo6.write("\nmaçã")
+
+def obter_produtos():
+    with open("projeto_lp3/produto.csv", "r") as produto_arquivo:
+        produtos = []
+        for linha in produto_arquivo:
+            dados_produto = linha.strip().split(",")
+            produto ={
+                "nome": dados_produto[0],
+                "descricao": dados_produto[1],
+                "preco": float(dados_produto[2]),
+                "imagem": dados_produto[3]
+            }
+            produtos.append(produto)
+        return produtos
+
+def salvar_produto(nome, descricao, preco, img):
+    with open("projeto_lp3/produto.csv", "a") as arquivo_produto: 
+        produto =  f"{nome},{descricao},{preco},{img}"
+        arquivo_produto.write(f"\n{produto}")
+
+# salvar_produto('suco de uva', 'é bom', '10', 'lala.png')
